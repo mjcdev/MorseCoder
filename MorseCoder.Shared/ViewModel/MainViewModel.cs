@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using MorseCoder.Interfaces;
 using MorseCoder.PCL;
 using MorseCoder.PCL.Interfaces;
@@ -66,6 +67,10 @@ namespace MorseCoder.ViewModel
             _input = _morseCoderSettings.Input;
             _direction = morseCoderSettings.Direction;
 
+            DotCommand = new RelayCommand(DotCommandAction);
+            DashCommand = new RelayCommand(DashCommandAction);
+            SpaceCommand = new RelayCommand(SpaceCommandAction);
+
             switch (_direction)
             {
                 case TranslationDirection.AlphabetToMorse:
@@ -79,6 +84,27 @@ namespace MorseCoder.ViewModel
             }
 
             Translation = _translator.Translate(Input);                
+        }
+
+        public RelayCommand DotCommand { get; private set; }
+
+        private void DotCommandAction()
+        {
+            Input += ".";
+        }
+
+        public RelayCommand DashCommand { get; private set; }
+
+        private void DashCommandAction()
+        {
+            Input += "-";
+        }
+
+        public RelayCommand SpaceCommand { get; private set; }
+
+        private void SpaceCommandAction()
+        {
+            Input += " ";
         }
     }
 }

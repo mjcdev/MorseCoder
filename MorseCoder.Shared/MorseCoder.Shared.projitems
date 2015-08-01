@@ -17,7 +17,16 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Design\DesignMorseCoderSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IMorseCoderSettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserControls\MorseInput.xaml.cs">
+      <DependentUpon>MorseInput.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)UserControls\MorseInput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>
