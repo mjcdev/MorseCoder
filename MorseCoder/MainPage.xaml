@@ -16,8 +16,32 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="desktopView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1200" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="output.FontSize" Value="72"/>
+                        <Setter Target="input.FontSize" Value="72"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="phoneView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="output.FontSize" Value="24"/>
+                        <Setter Target="input.FontSize" Value="24"/>
+                        <Setter Target="input.Margin" Value="10"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <ScrollViewer Margin="30" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Translation}" VerticalAlignment="Center" FontSize="72" />
+            <TextBlock x:Name="output" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Translation}" VerticalAlignment="Center" FontSize="72" />
         </ScrollViewer>
 
         <Grid Grid.Row="1">
@@ -25,7 +49,7 @@
                 <RowDefinition />
                 <RowDefinition Height="120" />
             </Grid.RowDefinitions>
-            <TextBox Text="{Binding Input, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="72"  Margin="50,10" TextWrapping="Wrap"/>
+            <TextBox x:Name="input" Text="{Binding Input, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="72"  Margin="50,10" TextWrapping="Wrap"/>
             <!--<UserControls:MorseInput DotCommand="{Binding DotCommand}" DashCommand="{Binding DashCommand}" SpaceCommand="{Binding SpaceCommand}" HorizontalAlignment="Stretch" Margin="50,10" Grid.Row="1" VerticalAlignment="Stretch" />-->
         </Grid>
 
