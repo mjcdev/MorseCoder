@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
 using MorseCoder.Interfaces;
 using MorseCoder.PCL;
 using MorseCoder.PCL.Interfaces;
@@ -15,6 +16,7 @@ namespace MorseCoder.ViewModel
     {
         private ITranslator _translator;
         private IMorseCoderSettings _morseCoderSettings;
+        private INavigationService _navigationService;
 
         private string _translation;
         private string _input;
@@ -60,9 +62,10 @@ namespace MorseCoder.ViewModel
             }
         }
 
-        public MainViewModel(IMorseCoderSettings morseCoderSettings)
+        public MainViewModel(IMorseCoderSettings morseCoderSettings, INavigationService navigationService)
         {
             _morseCoderSettings = morseCoderSettings;
+            _navigationService = navigationService;
 
             _input = _morseCoderSettings.Input;
             _direction = morseCoderSettings.Direction;
@@ -70,6 +73,8 @@ namespace MorseCoder.ViewModel
             DotCommand = new RelayCommand(DotCommandAction);
             DashCommand = new RelayCommand(DashCommandAction);
             SpaceCommand = new RelayCommand(SpaceCommandAction);
+
+            AboutNavigateCommand = new RelayCommand(AboutNavigateCommandAction);
 
             switch (_direction)
             {
@@ -105,6 +110,13 @@ namespace MorseCoder.ViewModel
         private void SpaceCommandAction()
         {
             Input += " ";
+        }
+
+        public RelayCommand AboutNavigateCommand { get; private set; }
+
+        private void AboutNavigateCommandAction()
+        {
+            _navigationService.NavigateTo("About");
         }
     }
 }

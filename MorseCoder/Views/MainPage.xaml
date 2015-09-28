@@ -1,11 +1,11 @@
 ﻿<Page
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MorseCoder"
+    xmlns:local="using:MorseCoder.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:UserControls="using:MorseCoder.UserControls"
-    x:Class="MorseCoder.MainPage"
+    x:Class="MorseCoder.Views.MainPage"
     mc:Ignorable="d"
     
     DataContext="{Binding Main, Source={StaticResource Locator}}">
@@ -48,9 +48,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="120" />
+                <RowDefinition Height="120" />
             </Grid.RowDefinitions>
             <TextBox x:Name="input" Text="{Binding Input, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="72"  Margin="50,10" TextWrapping="Wrap"/>
             <!--<UserControls:MorseInput DotCommand="{Binding DotCommand}" DashCommand="{Binding DashCommand}" SpaceCommand="{Binding SpaceCommand}" HorizontalAlignment="Stretch" Margin="50,10" Grid.Row="1" VerticalAlignment="Stretch" />-->
+            <Button Content="About" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Command="{Binding AboutNavigateCommand}"/>
         </Grid>
 
     </Grid>
