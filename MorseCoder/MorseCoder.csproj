@@ -99,6 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\TranslationDirectionToMorseInputVisibilityConverter.cs" />
     <Compile Include="Design\DesignMorseCoderSettings.cs" />
     <Compile Include="Interfaces\IMorseCoderSettings.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">
@@ -155,6 +156,7 @@
       <Name>MorseCoder.PCL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -5,11 +5,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:UserControls="using:MorseCoder.UserControls"
+    xmlns:converters="using:MorseCoder.Converters"
     x:Class="MorseCoder.Views.MainPage"
     mc:Ignorable="d"
     
     DataContext="{Binding Main, Source={StaticResource Locator}}">
 
+    <Page.Resources>
+        <converters:TranslationDirectionToMorseInputVisibilityConverter x:Key="TranslationDirectionToMorseInputVisibilityConverter"/>
+    </Page.Resources>
+    
     <Grid Background="{Binding BackgroundBrush}">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -47,11 +52,20 @@
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition />
-                <RowDefinition Height="120" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="120" />
             </Grid.RowDefinitions>
             <TextBox x:Name="input" Text="{Binding Input, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="72"  Margin="50,10" TextWrapping="Wrap"/>
-            <!--<UserControls:MorseInput DotCommand="{Binding DotCommand}" DashCommand="{Binding DashCommand}" SpaceCommand="{Binding SpaceCommand}" HorizontalAlignment="Stretch" Margin="50,10" Grid.Row="1" VerticalAlignment="Stretch" />-->
+            <UserControls:MorseInput 
+                Visibility="{Binding Direction, Converter={StaticResource TranslationDirectionToMorseInputVisibilityConverter}}"
+                Height="100"
+                DotCommand="{Binding DotCommand}"
+                DashCommand="{Binding DashCommand}"
+                SpaceCommand="{Binding SpaceCommand}"
+                HorizontalAlignment="Stretch"
+                Margin="50,10"
+                Grid.Row="1"
+                VerticalAlignment="Stretch" />
             <Button Content="About" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Command="{Binding AboutNavigateCommand}"/>
         </Grid>
 

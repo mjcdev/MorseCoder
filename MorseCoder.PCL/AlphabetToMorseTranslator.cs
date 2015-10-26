@@ -21,15 +21,15 @@ namespace MorseCoder.PCL
             var upper = input.ToUpper();
             var charArray = upper.ToCharArray();
 
-            string output = string.Empty;
+            StringBuilder stringBuilder = new StringBuilder();
 
             foreach (var charInput in charArray)
             {
-                output += CharToMorse(charInput);
-                output += " ";
+                stringBuilder.Append(CharToMorse(charInput));
+                stringBuilder.Append(" ");
             }
 
-            return output;
+            return stringBuilder.ToString();
         }
 
         private string CharToMorse(char input)

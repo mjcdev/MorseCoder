@@ -18,16 +18,16 @@ namespace MorseCoder.PCL
 
         public string Translate(string input)
         {
-            var split = input.Split(new char[] { ' ' });  
+            var split = input.Split(new char[] { ' ' });
 
-            string output = string.Empty;
-
+            StringBuilder stringBuilder = new StringBuilder();
+           
             foreach (var stringInput in split)
             {
-                output += MorseToChar(stringInput);
+                stringBuilder.Append(MorseToChar(stringInput));
             }
-            
-            return output;
+
+            return stringBuilder.ToString();
         }
 
         private string MorseToChar(string input)

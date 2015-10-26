@@ -61,6 +61,18 @@ namespace MorseCoder.ViewModel
                 Set(() => BackgroundBrush, ref _backgroundBrush, value);
             }
         }
+        
+        public TranslationDirection Direction
+        {
+            get
+            {
+                return _direction;
+            }
+            set
+            {
+                Set(() => Direction, ref _direction, value);
+            }
+        }
 
         public MainViewModel(IMorseCoderSettings morseCoderSettings, INavigationService navigationService)
         {
@@ -69,7 +81,7 @@ namespace MorseCoder.ViewModel
 
             _input = _morseCoderSettings.Input;
             _direction = morseCoderSettings.Direction;
-
+            
             DotCommand = new RelayCommand(DotCommandAction);
             DashCommand = new RelayCommand(DashCommandAction);
             SpaceCommand = new RelayCommand(SpaceCommandAction);
