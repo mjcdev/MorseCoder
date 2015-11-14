@@ -20,6 +20,14 @@ namespace MorseCoder.ViewModel
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
             }
         }
+        
+        public AboutViewModel About
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<AboutViewModel>();
+            }
+        }
 
         static ViewModelLocator()
         {
@@ -29,6 +37,7 @@ namespace MorseCoder.ViewModel
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<AboutViewModel>();
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
