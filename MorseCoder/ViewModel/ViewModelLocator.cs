@@ -5,9 +5,6 @@ using Microsoft.Practices.ServiceLocation;
 using MorseCoder.Design;
 using MorseCoder.Interfaces;
 using MorseCoder.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MorseCoder.ViewModel
 {
@@ -29,6 +26,14 @@ namespace MorseCoder.ViewModel
             }
         }
 
+        public SettingsViewModel Settings
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SettingsViewModel>();
+            }
+        }
+
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
@@ -38,6 +43,7 @@ namespace MorseCoder.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();
+            SimpleIoc.Default.Register<SettingsViewModel>();
 
             if (ViewModelBase.IsInDesignModeStatic)
             {
@@ -54,6 +60,7 @@ namespace MorseCoder.ViewModel
             var navigationService = new NavigationService();
 
             navigationService.Configure("About", typeof(AboutPage));
+            navigationService.Configure("Settings", typeof(SettingsPage));
 
             return navigationService;
         }

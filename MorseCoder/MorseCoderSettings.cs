@@ -42,7 +42,7 @@ namespace MorseCoder
             }
             set
             {
-                localSettings.Values[_directionKey] = value;
+                localSettings.Values[_directionKey] = (int)value;
             }
         }
     }

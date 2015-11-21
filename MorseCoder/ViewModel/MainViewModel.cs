@@ -87,6 +87,7 @@ namespace MorseCoder.ViewModel
             SpaceCommand = new RelayCommand(SpaceCommandAction);
 
             AboutNavigateCommand = new RelayCommand(AboutNavigateCommandAction);
+            SettingsNavigateCommand = new RelayCommand(SettingsNavigateCommandAction);
 
             switch (_direction)
             {
@@ -129,6 +130,13 @@ namespace MorseCoder.ViewModel
         private void AboutNavigateCommandAction()
         {
             _navigationService.NavigateTo("About");
+        }
+
+        public RelayCommand SettingsNavigateCommand { get; private set; }
+
+        private void SettingsNavigateCommandAction()
+        {
+            _navigationService.NavigateTo("Settings");
         }
     }
 }

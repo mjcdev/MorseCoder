@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="MorseCoder.Views.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MorseCoder.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:MorseCoder.Converters"
+    mc:Ignorable="d"
+    
+    DataContext="{Binding Settings, Source={StaticResource Locator}}">
+
+    <Page.Resources>
+        <converters:TranslationDirectionToDisplayConverter x:Key="TranslationDirectionToDisplayConverter"/>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding CurrentTranslationDirection, Converter={StaticResource TranslationDirectionToDisplayConverter}}" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" />
+            <Button Content="Morse To Alphabet" Command="{Binding MorseToAlphabetCommand}" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30"/>
+            <Button Content="Alphabet To Morse" Command="{Binding AlphabetToMorseCommand}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="30"/>
+
+        </Grid>
+
+    </Grid>
+</Page>
