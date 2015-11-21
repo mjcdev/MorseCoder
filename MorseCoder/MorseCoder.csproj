@@ -99,6 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\TranslationDirectionToDisplayConverter.cs" />
     <Compile Include="Converters\TranslationDirectionToMorseInputVisibilityConverter.cs" />
     <Compile Include="Design\DesignMorseCoderSettings.cs" />
     <Compile Include="Interfaces\IMorseCoderSettings.cs" />

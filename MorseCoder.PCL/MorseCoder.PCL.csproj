@@ -38,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlphabetToMorseTranslator.cs" />
+    <Compile Include="Attributes\DisplayAttribute.cs" />
     <Compile Include="TranslationDirection.cs" />
     <Compile Include="Interfaces\ITranslator.cs" />
     <Compile Include="Lookup.cs" />

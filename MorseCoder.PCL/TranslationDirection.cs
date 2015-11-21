@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MorseCoder.PCL.Attributes;
 
 namespace MorseCoder.PCL
 {
     public enum TranslationDirection
     {
+        [Display("Morse to Alphabet")]
         MorseToAlphabet,
+
+        [Display("Alphabet to Morse")]
         AlphabetToMorse,
     }
 }
