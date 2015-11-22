@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Views;
 using MorseCoder.Interfaces;
+using MorseCoder.Messaging;
 using MorseCoder.PCL;
 
 namespace MorseCoder.ViewModel
@@ -8,6 +10,7 @@ namespace MorseCoder.ViewModel
     public class SettingsViewModel : ViewModelBase
     {
         private IMorseCoderSettings _morseCoderSettings;
+        private INavigationService _navigationService;
 
         private TranslationDirection _currentTranslationDirection;
 
@@ -23,14 +26,16 @@ namespace MorseCoder.ViewModel
             }
         }
 
-        public SettingsViewModel(IMorseCoderSettings morseCoderSettings)
+        public SettingsViewModel(IMorseCoderSettings morseCoderSettings, INavigationService navigationService)
         {
             _morseCoderSettings = morseCoderSettings;
+            _navigationService = navigationService;
 
             _currentTranslationDirection = morseCoderSettings.Direction;
                         
             MorseToAlphabetCommand = new RelayCommand(MorseToAlphabetCommandAction);
             AlphabetToMorseCommand = new RelayCommand(AlphabetToMorseCommandAction);
+            BackNavigationCommand = new RelayCommand(BackNavigationCommandAction);
         }
 
         public RelayCommand MorseToAlphabetCommand { get; private set; }
@@ -47,11 +52,21 @@ namespace MorseCoder.ViewModel
             SetTranslationDirection(TranslationDirection.AlphabetToMorse);
         }
 
+        public RelayCommand BackNavigationCommand { get; private set; }
+
+        private void BackNavigationCommandAction()
+        {
+            _navigationService.GoBack();
+        }
+
         private void SetTranslationDirection(TranslationDirection translationDirection)
         {
             _morseCoderSettings.Direction = translationDirection;
 
-            CurrentTranslationDirection = _morseCoderSettings.Direction;            
-        }
+            CurrentTranslationDirection = _morseCoderSettings.Direction;
+
+            var settingsChangedMessage = new SettingsChangedMessage(CurrentTranslationDirection);
+            MessengerInstance.Send(settingsChangedMessage);
+        }       
     }
 }

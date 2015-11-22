@@ -103,6 +103,7 @@
     <Compile Include="Converters\TranslationDirectionToMorseInputVisibilityConverter.cs" />
     <Compile Include="Design\DesignMorseCoderSettings.cs" />
     <Compile Include="Interfaces\IMorseCoderSettings.cs" />
+    <Compile Include="Messaging\SettingsChangedMessage.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
     <Compile Include="Views\AboutPage.xaml.cs">

@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using MorseCoder.Interfaces;
+using MorseCoder.Messaging;
 using MorseCoder.PCL;
 using MorseCoder.PCL.Interfaces;
 using System;
@@ -89,19 +90,11 @@ namespace MorseCoder.ViewModel
             AboutNavigateCommand = new RelayCommand(AboutNavigateCommandAction);
             SettingsNavigateCommand = new RelayCommand(SettingsNavigateCommandAction);
 
-            switch (_direction)
-            {
-                case TranslationDirection.AlphabetToMorse:
-                    _translator = new AlphabetToMorseTranslator();
-                    BackgroundBrush = new SolidColorBrush(Colors.CadetBlue);
-                    break;
-                case TranslationDirection.MorseToAlphabet:
-                    _translator = new MorseToAlphabetTranslator();
-                    BackgroundBrush = new SolidColorBrush(Colors.Crimson);
-                    break;
-            }
+            ConfigureTranslator(_direction);           
 
-            Translation = _translator.Translate(Input);                
+            Translation = _translator.Translate(Input);
+
+            MessengerInstance.Register<SettingsChangedMessage>(this, SettingsChangedMessageHandler);
         }
 
         public RelayCommand DotCommand { get; private set; }
@@ -137,6 +130,31 @@ namespace MorseCoder.ViewModel
         private void SettingsNavigateCommandAction()
         {
             _navigationService.NavigateTo("Settings");
+        }
+
+        private void SettingsChangedMessageHandler(SettingsChangedMessage settingsChangedMessage)
+        {
+            if (settingsChangedMessage.TranslationDirection != Direction)
+            {
+                Direction = settingsChangedMessage.TranslationDirection;
+                ConfigureTranslator(Direction);
+                Input = Translation;
+            }
+        }
+
+        private void ConfigureTranslator(TranslationDirection translationDirection)
+        {
+            switch (translationDirection)
+            {
+                case TranslationDirection.AlphabetToMorse:
+                    _translator = new AlphabetToMorseTranslator();
+                    BackgroundBrush = new SolidColorBrush(Colors.CadetBlue);
+                    break;
+                case TranslationDirection.MorseToAlphabet:
+                    _translator = new MorseToAlphabetTranslator();
+                    BackgroundBrush = new SolidColorBrush(Colors.Crimson);
+                    break;
+            }
         }
     }
 }
