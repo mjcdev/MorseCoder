@@ -71,8 +71,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button Content="About" Margin="20,0" HorizontalAlignment="Stretch" VerticalAlignment="Center"  Command="{Binding AboutNavigateCommand}"/>
-                <Button Content="Settings" Margin="20,0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Command="{Binding SettingsNavigateCommand}" />
+                <Button Content="About" Style="{StaticResource ButtonStyle}" Command="{Binding AboutNavigateCommand}"/>
+                <Button Content="Settings" Style="{StaticResource ButtonStyle}" Grid.Column="1" Command="{Binding SettingsNavigateCommand}" />
             </Grid>            
         </Grid>
 
