@@ -162,6 +162,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MorseCoder.BackgroundTasks\MorseCoder.BackgroundTasks.csproj">
+      <Project>{77741663-811c-4c95-ac00-36b4d0e2531b}</Project>
+      <Name>MorseCoder.BackgroundTasks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MorseCoder.PCL\MorseCoder.PCL.csproj">
       <Project>{0a502eca-8f23-42f7-920d-771e28f78a6d}</Project>
       <Name>MorseCoder.PCL</Name>

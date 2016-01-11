@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MorseCoder.PCL", "MorseCoder.PCL\MorseCoder.PCL.csproj", "{0A502ECA-8F23-42F7-920D-771E28F78A6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MorseCoder.Windows.Test", "MorseCoder.Windows.Test\MorseCoder.Windows.Test.csproj", "{3E665577-4C0C-4690-A129-189E28C86960}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MorseCoder", "MorseCoder\MorseCoder.csproj", "{47F46736-13C5-449B-90B5-9138F75A407F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MorseCoder.BackgroundTasks", "MorseCoder.BackgroundTasks\MorseCoder.BackgroundTasks.csproj", "{77741663-811C-4C95-AC00-36B4D0E2531B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,22 @@ Global
 		{47F46736-13C5-449B-90B5-9138F75A407F}.Release|x86.ActiveCfg = Release|x86
 		{47F46736-13C5-449B-90B5-9138F75A407F}.Release|x86.Build.0 = Release|x86
 		{47F46736-13C5-449B-90B5-9138F75A407F}.Release|x86.Deploy.0 = Release|x86
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|ARM.ActiveCfg = Debug|ARM
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|ARM.Build.0 = Debug|ARM
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|x64.ActiveCfg = Debug|x64
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|x64.Build.0 = Debug|x64
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|x86.ActiveCfg = Debug|x86
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Debug|x86.Build.0 = Debug|x86
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|ARM.ActiveCfg = Release|ARM
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|ARM.Build.0 = Release|ARM
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|x64.ActiveCfg = Release|x64
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|x64.Build.0 = Release|x64
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|x86.ActiveCfg = Release|x86
+		{77741663-811C-4C95-AC00-36B4D0E2531B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
