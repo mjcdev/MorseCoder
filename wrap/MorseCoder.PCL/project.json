@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451+win81": {
+      "wrappedProject": "../../MorseCoder.PCL/MorseCoder.PCL.csproj",
+      "bin": {
+        "assembly": "../../MorseCoder.PCL/obj/{configuration}/MorseCoder.PCL.dll",
+        "pdb": "../../MorseCoder.PCL/obj/{configuration}/MorseCoder.PCL.pdb"
+      }
+    }
+  }
+}
