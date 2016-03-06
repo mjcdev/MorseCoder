@@ -114,6 +114,10 @@
     <SDKReference Include="TestPlatform, Version=11.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TranslatorServiceTests\TranslatorServiceTests.cs" />
+    <Compile Include="TranslatorServiceTests\Translators\DummyResponseTranslator.cs" />
+    <Compile Include="TranslatorServiceTests\Translators\PassThroughTranslator.cs" />
+    <Compile Include="TranslatorServiceTests\Translators\TranslatorKeys.cs" />
     <Compile Include="TranslatorTests\MorseToAlphabetTranslatorTests.cs" />
     <Compile Include="TranslatorTests\AlphabetToMorseTranslatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -144,6 +148,7 @@
       <Name>MorseCoder.PCL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
