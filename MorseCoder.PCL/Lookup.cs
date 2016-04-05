@@ -21,7 +21,8 @@ namespace MorseCoder.PCL
         {
             var dictionary = new List<Lookup>
             {
-                new Lookup(' ', "/"),                
+                new Lookup(' ', "/"),
+                new Lookup(' ', "_"),             
                 new Lookup('A', ".-"),
                 new Lookup('B', "-..."),
                 new Lookup('C', "-.-."),

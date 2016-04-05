@@ -1,33 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web.Http;
 using Microsoft.AspNet.Mvc;
 using MorseCoder.PCL.Interfaces;
-using MorseCoder.PCL;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MorseCoder.WebAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class AlphabetToMorseController : Controller
-    {        
+    public class TranslatorController : Controller
+    {
         [FromServices]
-        public ITranslator _translator { get; set; }
+        public ITranslatorService _translatorService { get; set; }
 
-        // GET: api/values
+        // GET: api/translator
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _translatorService.TranslatorKeys.ToArray();
         }
 
-        // GET api/values/input
-        [HttpGet("{input}")]
-        public string Get(string input)
+        // GET api/translator/translatorKey/input
+        [HttpGet("{translatorKey}/{input}")]
+        public string Get(string translatorKey, [FromUri] string input)
         {
-            return _translator.Translate(input);
+            return _translatorService.Translate(translatorKey, input);
         }
 
         // POST api/values

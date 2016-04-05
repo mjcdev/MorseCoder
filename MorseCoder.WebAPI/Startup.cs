@@ -30,8 +30,18 @@ namespace MorseCoder.WebAPI
         {
             // Add framework services.
             services.AddMvc();
+            
+            services.AddSingleton<ITranslatorService>(ConfigureITranslatorService);
+        }
 
-            services.AddSingleton<ITranslator, AlphabetToMorseTranslator>();
+        private ITranslatorService ConfigureITranslatorService(IServiceProvider serviceProvider)
+        {
+            var translatorService = new TranslatorService();
+
+            translatorService.AddTranslator("AlphabetToMorse", new AlphabetToMorseTranslator());
+            translatorService.AddTranslator("MorseToAlphabet", new MorseToAlphabetTranslator());
+
+            return translatorService;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
